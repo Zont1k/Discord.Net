@@ -60,13 +60,13 @@ namespace InteractionFramework
             await Task.Delay(Timeout.Infinite);
             
             // Bot status that changes aftera specified time.
-            switch(true)
+            while(true)
             {
-                    _client.SetGameAsync("I love Discord.Net");
+                   await _client.SetGameAsync("I love Discord");
                     Thread.sleep(5000);
-                    _client.SetGameAsync("I use Discord.Net");
+                    await _client.SetGameAsync("I love Discord.NET");
                     Thread.sleep(5000);
-                    
+
             }
         }
 
