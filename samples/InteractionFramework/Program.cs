@@ -24,7 +24,8 @@ namespace InteractionFramework
         {
             _configuration = new ConfigurationBuilder()
                 .AddEnvironmentVariables(prefix: "DC_")
-                .AddJsonFile("appsettings.json", optional: true)
+                // Or you can use appsettings.yml. For Example: .AddYmlFile("appsettings.yml", optional: true).
+                .AddJsonFile("appsettings.json", optional: true) 
                 .Build();
 
             _services = new ServiceCollection()
@@ -57,6 +58,16 @@ namespace InteractionFramework
 
             // Never quit the program until manually forced to.
             await Task.Delay(Timeout.Infinite);
+            
+            // Bot status that changes aftera specified time.
+            switch(true)
+            {
+                    _client.SetGameAsync("I love Discord.Net");
+                    Thread.sleep(5000);
+                    _client.SetGameAsync("I use Discord.Net");
+                    Thread.sleep(5000);
+                    
+            }
         }
 
         private async Task LogAsync(LogMessage message)
